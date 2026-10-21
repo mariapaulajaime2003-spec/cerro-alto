@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cerro Alto · Café de especialidad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1ec;--surface:#fff;--ink:#14281f;--muted:#5b6b62;--cherry:#d6334b;--sun:#f2b84b;--line:#d5dcd3;--deep:#14281f;--deepink:#eef1ec;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a14;--surface:#16271f;--ink:#eef1ec;--muted:#9bb0a4;--line:#27402f;--deep:#06100b;--deepink:#eef1ec}}
+:root[data-theme="dark"]{--bg:#0e1a14;--surface:#16271f;--ink:#eef1ec;--muted:#9bb0a4;--line:#27402f;--deep:#06100b;--deepink:#eef1ec}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.05;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:800 22px "Bricolage Grotesque",sans-serif;text-decoration:none}
+nav{display:flex;gap:22px;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:15px}
+.cartbtn{background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:9px 16px;font:700 14px "DM Sans";cursor:pointer}
+:focus-visible{outline:3px solid var(--cherry);outline-offset:2px}
+.hero{background:var(--deep);color:var(--deepink);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding-top:56px;padding-bottom:56px}
+.hero h1{font-size:clamp(44px,7vw,92px);font-weight:800}
+.hero p{max-width:460px;margin:22px 0 30px;opacity:.85;font-size:19px}
+.btn{display:inline-block;background:var(--cherry);color:#fff;border:0;border-radius:99px;padding:14px 26px;font:700 16px "DM Sans";text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;border:2px solid currentColor;margin-left:10px}
+.stage{aspect-ratio:1;max-width:460px;margin-left:auto;width:100%}
+section{padding:80px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:36px;flex-wrap:wrap}
+.head h2{font-size:clamp(32px,5vw,54px);font-weight:800}
+.head p{color:var(--muted);max-width:380px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.card svg{display:block;width:100%;height:auto}
+.card .b{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:24px}
+.origin{color:var(--muted);font-size:14px}
+.notes{display:flex;flex-wrap:wrap;gap:6px}
+.notes span{border:1px solid var(--line);border-radius:99px;padding:2px 11px;font-size:13px}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px}
+.price{font:800 22px "Bricolage Grotesque"}
+.add{background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:10px 18px;font:700 14px "DM Sans";cursor:pointer}
+.add:active{transform:scale(.96)}
+.samples{background:var(--sun);color:#14281f}
+.samples .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.samples h2{font-size:clamp(34px,5vw,58px);font-weight:800}
+.samples p{margin:16px 0 24px;font-size:19px;max-width:460px}
+.samples .btn{background:#14281f}
+.trio{display:flex;gap:12px}
+.trio svg{width:33%;height:auto;filter:drop-shadow(0 12px 18px rgba(20,40,31,.25))}
+.trio svg:nth-child(2){transform:translateY(-22px)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px}
+.steps h3{font-size:24px;margin-bottom:8px}
+.steps p{color:var(--muted)}
+.steps svg{width:56px;height:56px;margin-bottom:14px}
+footer{background:var(--deep);color:var(--deepink);padding:48px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer p{opacity:.75}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--surface);z-index:50;transform:translateX(105%);transition:transform .3s;padding:calc(22px + env(safe-area-inset-top,0px)) 22px calc(22px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;border-left:1px solid var(--line)}
+.drawer.open{transform:none}
+.drawer h3{font-size:28px;display:flex;justify-content:space-between;align-items:center}
+.drawer h3 button{background:none;border:0;font-size:28px;color:var(--ink);cursor:pointer}
+#items{flex:1;overflow:auto;margin:18px 0}
+.it{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.it small{color:var(--muted);display:block}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer}
+.empty{color:var(--muted)}
+.tot{display:flex;justify-content:space-between;font:800 22px "Bricolage Grotesque";margin-bottom:14px}
+.drawer .btn{width:100%;text-align:center}
+.veil{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:40;display:none}
+.veil.on{display:block}
+@media(max-width:780px){.hero .wrap,.samples .wrap{grid-template-columns:1fr}.stage{margin:0 auto}nav a.h{display:none}section{padding:56px 0}.btn.ghost{margin:10px 0 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="#">Cerro Alto</a>
+<nav><a class="h" href="#cafes">Cafés</a><a class="h" href="#muestras">Muestras</a><a class="h" href="#proceso">Proceso</a><button class="cartbtn" id="open" aria-label="Abrir carrito">Carrito (<span id="n">0</span>)</button></nav></div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+<div><h1>Café que sabe a donde nació.</h1>
+<p>Lotes de pequeños productores colombianos, tostados en lotes cortos y enviados frescos a tu casa.</p>
+<a class="btn" href="#cafes">Comprar café</a><a class="btn ghost" href="#muestras">Pedir muestras</a></div>
+<svg class="stage" viewBox="0 0 400 400" role="img" aria-label="Taza de café con granos">
+<circle cx="200" cy="200" r="180" fill="#f2b84b"/>
+<circle cx="200" cy="200" r="120" fill="#d6334b"/>
+<g transform="translate(95 150)"><path d="M0 40h170v70a70 70 0 0 1-70 70H70A70 70 0 0 1 0 110z" fill="#eef1ec"/><path d="M170 60h20a30 30 0 0 1 0 60h-22" fill="none" stroke="#eef1ec" stroke-width="16"/><ellipse cx="85" cy="40" rx="85" ry="16" fill="#3a2418"/><ellipse cx="85" cy="40" rx="60" ry="9" fill="#6b4630"/></g>
+<path d="M150 120q-18-30 0-55M200 110q-18-30 0-60M250 120q-18-30 0-55" fill="none" stroke="#eef1ec" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+<g fill="#3a2418"><ellipse cx="62" cy="310" rx="22" ry="30" transform="rotate(-30 62 310)"/><ellipse cx="340" cy="92" rx="20" ry="28" transform="rotate(35 340 92)"/><ellipse cx="338" cy="320" rx="18" ry="26" transform="rotate(-50 338 320)"/></g>
+<g stroke="#f2b84b" stroke-width="3" fill="none"><path d="M62 284q-10 26 0 52" transform="rotate(-30 62 310)"/><path d="M340 66q-10 26 0 52" transform="rotate(35 340 92)"/><path d="M338 296q-8 24 0 48" transform="rotate(-50 338 320)"/></g>
+</svg></div></div>
+
+<section id="cafes"><div class="wrap">
+<div class="head"><h2>Cafés de temporada</h2><p>Bolsas de 250 g. Tostado a pedido, molido como prefieras.</p></div>
+<div class="grid" id="grid"></div></div></section>
+
+<section class="samples" id="muestras"><div class="wrap">
+<div><h2>Prueba antes de elegir.</h2>
+<p>Caja de muestras con 3 cafés de 50 g cada uno, para comparar origen, proceso y perfil en tu propia cocina.</p>
+<button class="btn" id="sbtn">Pedir caja de muestras · $38.000</button></div>
+<div class="trio" id="trio"></div></div></section>
+
+<section id="proceso"><div class="wrap">
+<div class="head"><h2>Del cerro a tu taza</h2><p>Trabajamos directo con fincas de Huila, Nariño y Sierra Nevada.</p></div>
+<div class="steps">
+<div><svg viewBox="0 0 56 56"><path d="M4 48L22 18l10 16 6-8 14 22z" fill="#d6334b"/><circle cx="42" cy="12" r="6" fill="#f2b84b"/></svg><h3>Cosecha selectiva</h3><p>Solo cerezas maduras, recogidas a mano a más de 1.600 metros.</p></div>
+<div><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="22" fill="#f2b84b"/><path d="M18 30q10-18 20 0-10 12-20 0z" fill="#3a2418"/></svg><h3>Beneficio cuidadoso</h3><p>Lavado, honey o natural, según lo que mejor muestre cada lote.</p></div>
+<div><svg viewBox="0 0 56 56"><rect x="6" y="14" width="44" height="30" rx="8" fill="#14281f"/><circle cx="28" cy="29" r="9" fill="#d6334b"/></svg><h3>Tostión en lotes cortos</h3><p>Tostamos cada semana y despachamos máximo 5 días después.</p></div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap"><div><div class="logo">Cerro Alto</div><p>Café de especialidad colombiano · Envíos a todo el país</p></div><p>Pedidos por WhatsApp · Bogotá, Colombia</p></div></footer>
+
+<div class="veil" id="veil"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito"><h3>Tu pedido <button id="close" aria-label="Cerrar">×</button></h3><div id="items"></div>
+<div class="tot"><span>Total</span><span id="total">$0</span></div><button class="btn" id="send">Enviar pedido por WhatsApp</button></aside>
+
+<script>
+var WA="573000000000"; // Cambia por tu número de WhatsApp con indicativo
+var P=[
+{id:"h",n:"Huila Pink Bourbon",o:"Pitalito, Huila · Lavado",c:["#d6334b","#f6d5da"],t:["Frambuesa","Panela","Floral"],p:62000},
+{id:"n",n:"Nariño Geisha",o:"La Unión, Nariño · Honey",c:["#14281f","#f2b84b"],t:["Jazmín","Durazno","Té negro"],p:98000},
+{id:"s",n:"Sierra Nevada Natural",o:"Santa Marta · Natural",c:["#2c5f8a","#f2b84b"],t:["Mora","Cacao","Vino"],p:56000},
+{id:"c",n:"Cauca Castillo",o:"Popayán, Cauca · Lavado",c:["#e0782c","#14281f"],t:["Naranja","Caramelo","Almendra"],p:48000}];
+function bag(c,t,w){return '<svg viewBox="0 0 300 300" '+(w||'')+' role="img" aria-label="Bolsa de café"><rect width="300" height="300" fill="'+c[1]+'"/><circle cx="240" cy="60" r="70" fill="'+c[0]+'" opacity=".25"/><path d="M85 60h130l14 28v170a14 14 0 0 1-14 14H85a14 14 0 0 1-14-14V88z" fill="'+c[0]+'"/><rect x="85" y="50" width="130" height="14" rx="4" fill="#000" opacity=".25"/><circle cx="150" cy="150" r="38" fill="'+c[1]+'"/><path d="M134 156q16-34 32 0-16 22-32 0z" fill="'+c[0]+'"/><rect x="104" y="212" width="92" height="8" rx="4" fill="'+c[1]+'"/><rect x="120" y="230" width="60" height="6" rx="3" fill="'+c[1]+'" opacity=".6"/></svg>'}
+var cart={},money=function(v){return "$"+v.toLocaleString("es-CO")};
+var g=document.getElementById("grid");
+P.forEach(function(p){var d=document.createElement("article");d.className="card";
+d.innerHTML=bag(p.c)+'<div class="b"><h3>'+p.n+'</h3><div class="origin">'+p.o+'</div><div class="notes">'+p.t.map(function(x){return"<span>"+x+"</span>"}).join("")+'</div><div class="row"><span class="price">'+money(p.p)+'</span><button class="add" data-id="'+p.id+'">Agregar</button></div></div>';g.appendChild(d)});
+document.getElementById("trio").innerHTML=bag(P[0].c)+bag(P[1].c)+bag(P[2].c);
+var all=P.concat([{id:"m",n:"Caja de muestras (3 × 50 g)",p:38000}]);
+function render(){var el=document.getElementById("items"),h="",tot=0,n=0;
+for(var k in cart){var p=all.filter(function(x){return x.id==k})[0],q=cart[k];tot+=p.p*q;n+=q;
+h+='<div class="it"><div>'+p.n+'<small>'+money(p.p)+'</small></div><div class="qty"><button data-d="-1" data-id="'+k+'" aria-label="Quitar uno">−</button> '+q+' <button data-d="1" data-id="'+k+'" aria-label="Agregar uno">+</button></div></div>'}
+el.innerHTML=h||'<p class="empty">Aún no has agregado nada.</p>';
+document.getElementById("total").textContent=money(tot);document.getElementById("n").textContent=n}
+function add(id){cart[id]=(cart[id]||0)+1;render();toggle(true)}
+function toggle(o){document.getElementById("drawer").classList.toggle("open",o);document.getElementById("veil").classList.toggle("on",o)}
+document.addEventListener("click",function(e){var t=e.target;
+if(t.classList.contains("add"))add(t.dataset.id);
+if(t.dataset&&t.dataset.d){var i=t.dataset.id;cart[i]+=+t.dataset.d;if(cart[i]<1)delete cart[i];render()}});
+document.getElementById("sbtn").onclick=function(){add("m")};
+document.getElementById("open").onclick=function(){toggle(true)};
+document.getElementById("close").onclick=document.getElementById("veil").onclick=function(){toggle(false)};
+document.getElementById("send").onclick=function(){var l=[],tot=0;
+for(var k in cart){var p=all.filter(function(x){return x.id==k})[0];l.push(cart[k]+" x "+p.n);tot+=p.p*cart[k]}
+if(!l.length)return;
+var m="Hola, quiero pedir:\n"+l.join("\n")+"\nTotal: "+money(tot);
+window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(m),"_blank")};
+render();
+</script>
+</body>
+</html>
